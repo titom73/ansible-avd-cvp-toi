@@ -1,0 +1,32 @@
+ethernet_interfaces:
+  Ethernet1:
+    peer: leaf2
+    peer_interface: Ethernet1
+    peer_type: mlag_peer
+    description: MLAG_PEER_leaf2_Ethernet1
+    type: switched
+    shutdown: false
+    channel_group:
+      id: 1
+      mode: active
+  Ethernet3:
+    peer: spine2
+    peer_interface: Ethernet2
+    peer_type: spine
+    description: P2P_LINK_TO_SPINE2_Ethernet2
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 172.31.255.3/31
+  Ethernet4:
+    peer: host1
+    peer_interface: Eth1
+    peer_type: server
+    description: host1_Eth1
+    type: switched
+    shutdown: false
+    mode: access
+    vlans: 110
+    channel_group:
+      id: 4
+      mode: active
