@@ -1,0 +1,20 @@
+---
+- name: lab04 - cv_container lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+
+  tasks:
+    # - name: "Configure configlet on {{inventory_hostname}}"
+    #   arista.cvp.cv_configlet_v3:
+    #     configlets: "{{CVP_CONFIGLETS}}"
+    #     state: present
+
+    - name: "Configure containers on {{inventory_hostname}}"
+      arista.cvp.cv_container_v3:
+        topology: "{{CVP_CONTAINERS}}"
+      register: CVP_CONTAINERS_RESULT
+
+    - name: 'Display cv_configlet result'
+      debug:
+        msg: '{{CVP_CONTAINERS_RESULT}}'

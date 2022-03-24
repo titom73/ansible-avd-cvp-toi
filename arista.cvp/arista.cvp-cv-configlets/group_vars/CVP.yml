@@ -1,0 +1,5 @@
+---
+CVP_CONFIGLETS:
+  TRAINING-01: "alias a{{ 999 | random }} show version"
+  TRAINING-02: "alias a{{ 999 | random }} show version"
+  # TRAINING-03: "{{lookup('file', '../configlet.txt')}}"

@@ -1,0 +1,16 @@
+---
+- name: arista.cv - cv_configlet lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: "Configure configlet on {{inventory_hostname}}"
+      arista.cvp.cv_configlet_v3:
+        configlets: "{{CVP_CONFIGLETS}}"
+        state: present
+      register: CVP_CONFIGLET_RESULT
+
+    - name: 'Display cv_configlet result'
+      debug:
+        msg: '{{CVP_CONFIGLET_RESULT}}'

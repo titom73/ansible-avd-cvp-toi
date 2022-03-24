@@ -1,0 +1,12 @@
+---
+CVP_CONFIGLETS:
+  TRAINING-01: "alias a{{ 999 | random }} show version"
+  TRAINING-02: "alias a{{ 999 | random }} show version"
+
+CVP_DEVICES:
+  - fqdn: host1
+    # serialNumber: host1
+    parentContainerName: Hosts
+    configlets:
+        - 'BaseIPv4_Host1'
+        - 'Host1-ATD'

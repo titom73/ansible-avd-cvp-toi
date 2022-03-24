@@ -1,0 +1,15 @@
+---
+CVP_CONFIGLETS:
+  TRAINING-01: "alias a{{ 999 | random }} show version"
+  TRAINING-02: "alias a{{ 999 | random }} show version"
+
+CVP_CONTAINERS:
+  TRAINING:
+    parentContainerName: Tenant
+  TRAINING_DC:
+    parentContainerName: TRAINING
+  TRAINING_LEAFS:
+    parentContainerName: TRAINING_DC
+  TRAINING_SPINES:
+    parentContainerName: TRAINING_DC
+

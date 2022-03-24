@@ -1,4 +1,4 @@
-collections/*
+arista.avd/collections/*
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

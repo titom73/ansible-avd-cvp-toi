@@ -1,0 +1,23 @@
+---
+- name: lab05 - cv_device lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+
+  tasks:
+    # - name: "Configure configlet on {{inventory_hostname}}"
+    #   arista.cvp.cv_configlet_v3:
+    #     configlets: "{{CVP_CONFIGLETS}}"
+    #     state: present
+
+    - name: "Configure devices on {{inventory_hostname}}"
+      arista.cvp.cv_device_v3:
+        devices: "{{CVP_DEVICES}}"
+        state: present
+        apply_mode: loose
+        search_key: hostname
+      register: CVP_DEVICES_RESULTS
+
+    - name: 'Display debug'
+      debug:
+        msg: '{{CVP_DEVICES_RESULTS}}'
